@@ -1,0 +1,240 @@
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("body", "created_at", "excerpt", "location", "published_at", "title", "updated_at", "user_id") VALUES ('Test body', '2010-05-05 23:13:25.856104', NULL, NULL, NULL, 'Test article', '2010-05-05 23:13:25.856104', 914507133)[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT * FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = 517600287 ) ORDER BY categories.name[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "articles" WHERE ("articles"."id" = 517600287)
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1[0m
+  [1m[35mArticle Load (1.3ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "articles" SET "title" = 'New title', "updated_at" = '2010-05-05 23:13:25.892073' WHERE ("articles"."id" = 517600287)[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mArticle Load (0.4ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM "articles"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Post title", "body"=>"Lorem ipsum.."}}
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("body", "created_at", "excerpt", "location", "published_at", "title", "updated_at", "user_id") VALUES ('Lorem ipsum..', '2010-05-05 23:13:31.543381', NULL, NULL, NULL, 'Post title', '2010-05-05 23:13:31.543381', 914507133)
+Redirected to http://test.host/articles/517600288
+Completed 302 Found in 28ms
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "articles"[0m
+  [1m[35mArticle Load (0.5ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "articles"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+  Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"517600287"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles".user_id = 914507133) AND ("articles"."id" = 517600287) ORDER BY published_at DESC, title ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT * FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = 517600287 ) ORDER BY categories.name
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "articles" WHERE ("articles"."id" = 517600287)[0m
+Redirected to http://test.host/articles
+Completed 302 Found in 8ms
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM "articles"
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+  Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"517600287"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles".user_id = 914507133) AND ("articles"."id" = 517600287) ORDER BY published_at DESC, title ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" ORDER BY categories.name
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = 517600287 ) ORDER BY categories.name[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = 517600287 ) ORDER BY categories.name
+Rendered articles/_form.html.erb (23.2ms)
+Rendered articles/edit.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 7.6ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1[0m
+  Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles"
+Rendered articles/_article.html.erb (2.8ms)
+Rendered articles/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.6ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  Processing by ArticlesController#new as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" ORDER BY categories.name
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = NULL ) ORDER BY categories.name[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = NULL ) ORDER BY categories.name
+Rendered articles/_form.html.erb (13.9ms)
+Rendered articles/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 1.3ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1[0m
+  Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"517600287"}
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+Rendered articles/_article.html.erb (2.7ms)
+Rendered articles/_notify_friend.html.erb (2.5ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".article_id = 517600287)[0m
+Rendered collection (0.0ms)
+Rendered articles/show.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.8ms)
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+  Processing by ArticlesController#update as HTML
+  Parameters: {"article"=>{"title"=>"New Title"}, "id"=>"517600287"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles".user_id = 914507133) AND ("articles"."id" = 517600287) ORDER BY published_at DESC, title ASC LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "articles" SET "title" = 'New Title', "updated_at" = '2010-05-05 23:13:31.706926' WHERE ("articles"."id" = 517600287)
+Redirected to http://test.host/articles/517600287
+Completed 302 Found in 7ms
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600287) LIMIT 1[0m
+Rendered notifier/email_friend.html.erb (2.4ms)
+Rendered notifier/email_friend.text.erb (1.5ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/login" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 13ms (Views: 13.2ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"eugene@example.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'eugene@example.com') LIMIT 1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+Rendered articles/_article.html.erb (16.9ms)
+Rendered articles/index.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"lauren@example.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'lauren@example.com') LIMIT 1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 330436437) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+Rendered articles/_article.html.erb (3.6ms)
+Rendered articles/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2010-05-05 19:13:37
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  Processing by ArticlesController#new as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" ORDER BY categories.name
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = NULL ) ORDER BY categories.name[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = NULL ) ORDER BY categories.name
+Rendered articles/_form.html.erb (99.0ms)
+Rendered articles/new.html.erb within layouts/application (104.1ms)
+Completed 200 OK in 106ms (Views: 105.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2010-05-05 19:13:37
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+  Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Integration Tests", "body"=>"Lorem Ipsum..."}}
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("body", "created_at", "excerpt", "location", "published_at", "title", "updated_at", "user_id") VALUES ('Lorem Ipsum...', '2010-05-05 23:13:37.774353', NULL, NULL, NULL, 'Integration Tests', '2010-05-05 23:13:37.774353', 914507133)
+Redirected to http://www.example.com/articles/517600288
+Completed 302 Found in 11ms
+
+
+Started GET "/articles/517600288" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"517600288"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600288) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 914507133) LIMIT 1[0m
+Rendered articles/_article.html.erb (5.2ms)
+Rendered articles/_notify_friend.html.erb (2.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".article_id = 517600288)
+Rendered collection (0.0ms)
+Rendered articles/show.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2010-05-05 19:13:37
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 330436437) LIMIT 1[0m
+  Processing by ArticlesController#new as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" ORDER BY categories.name
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = NULL ) ORDER BY categories.name[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".id FROM "categories" INNER JOIN "articles_categories" ON "categories".id = "articles_categories".category_id WHERE ("articles_categories".article_id = NULL ) ORDER BY categories.name
+Rendered articles/_form.html.erb (12.8ms)
+Rendered articles/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2010-05-05 19:13:37
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 330436437) LIMIT 1[0m
+  Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Open Session", "body"=>"Lorem Ipsum..."}}
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "articles" ("body", "created_at", "excerpt", "location", "published_at", "title", "updated_at", "user_id") VALUES ('Lorem Ipsum...', '2010-05-05 23:13:37.845253', NULL, NULL, NULL, 'Open Session', '2010-05-05 23:13:37.845253', 330436437)
+Redirected to http://www.example.com/articles/517600289
+Completed 302 Found in 4ms
+
+
+Started GET "/articles/517600289" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"517600289"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE ("articles"."id" = 517600289) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 330436437) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 330436437) LIMIT 1[0m
+Rendered articles/_article.html.erb (4.3ms)
+Rendered articles/_notify_friend.html.erb (1.2ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".article_id = 517600289)
+Rendered collection (0.0ms)
+Rendered articles/show.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles"
+Rendered articles/_article.html.erb (3.4ms)
+Rendered articles/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-05-05 19:13:37
+  Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.3ms)[0m  SELECT "articles".* FROM "articles"
+Rendered articles/_article.html.erb (3.5ms)
+Rendered articles/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 1.3ms)
